@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Rai | Machine Learning & Full-Stack Developer</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        background: '#f8fafc', // slate-50
+                        primary: '#0ea5e9',    // sky-500
+                        secondary: '#3b82f6',  // blue-500
+                        textMain: '#0f172a',   // slate-900
+                        textMuted: '#475569',  // slate-600
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+
+        /* Light Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #0ea5e9, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar for Light Theme */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Scroll Reveal States */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left { transform: translateX(-50px); }
+        .reveal-right { transform: translateX(50px); }
+        .reveal-scale { transform: scale(0.95); }
+        
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-start infinite;
+            color: #0ea5e9;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="antialiased font-sans relative">
+
+    <!-- Animated Background Blobs -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-sky-300/30 rounded-full mix-blend-multiply filter blur-[80px] animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-blue-300/30 rounded-full mix-blend-multiply filter blur-[80px] animate-blob" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-[-20%] left-[20%] w-[30rem] h-[30rem] bg-cyan-300/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-6 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto glass rounded-full px-6 py-3 flex justify-between items-center">
+            <a href="#home" class="font-heading font-bold text-xl tracking-wider text-textMain">
+                ZENITH<span class="text-primary">.</span>
+            </a>
+            <div class="flex items-center space-x-6">
+                <a href="https://github.com/ZENITH-RAI" target="_blank" class="text-slate-500 hover:text-textMain transition-colors duration-300 transform hover:scale-110">
+                    <i class="fa-brands fa-github text-xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/zenith-rai-a56185323/" target="_blank" class="text-slate-500 hover:text-[#0077b5] transition-colors duration-300 transform hover:scale-110">
+                    <i class="fa-brands fa-linkedin text-xl"></i>
+                </a>
+                <a href="mailto:sthaaryan123@gmail.com" class="text-slate-500 hover:text-red-500 transition-colors duration-300 transform hover:scale-110">
+                    <i class="fa-solid fa-envelope text-xl"></i>
+                </a>
+                <a href="zenresume.pdf" target="_blank" class="text-slate-500 hover:text-primary transition-colors duration-300 transform hover:scale-110" title="View Resume">
+                    <i class="fa-solid fa-file-pdf text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-24 pb-12 px-6 md:px-12 relative">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            
+            <!-- Left Side: Image -->
+            <div class="order-2 md:order-1 flex justify-center reveal reveal-left relative">
+                <div class="relative w-72 h-72 md:w-96 md:h-96 group animate-float">
+                    <!-- Glowing Halo -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-sky-400 to-blue-500 rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                    <!-- Circular Frame -->
+                    <div class="relative w-full h-full rounded-full p-1 bg-gradient-to-tr from-sky-300 via-blue-400 to-indigo-400 shadow-2xl shadow-sky-200 overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                        <img src="zenimage/zen.jpg" alt="Zenith Rai" class="w-full h-full object-cover rounded-full bg-white" onerror="this.src='https://ui-avatars.com/api/?name=Zenith+Rai&background=0ea5e9&color=fff&size=512'">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Content -->
+            <div class="order-1 md:order-2 space-y-6 reveal reveal-right">
+                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-sky-100 text-sm text-primary font-medium">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    <span>Seeking Internship Opportunities</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-heading font-bold text-textMain leading-tight">
+                    Hi, I'm <span class="text-gradient">Zenith Rai</span>
+                </h1>
+                
+                <h2 class="text-2xl md:text-3xl font-medium text-slate-600 typing-cursor h-10" id="typing-text"></h2>
+                
+                <div class="flex items-center text-slate-500 space-x-2 pb-2">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Kathmandu, Nepal</span>
+                </div>
+
+                <p class="text-textMuted leading-relaxed max-w-lg text-lg">
+                    BSc. CSIT student at Tribhuvan University with hands-on experience building machine learning systems and full-stack applications. Passionate about AI, backend engineering, and solving real-world problems.
+                </p>
+
+                <!-- Highlight Cards -->
+                <div class="flex flex-wrap gap-3 pt-4">
+                    <span class="glass px-4 py-2 rounded-lg text-sm font-medium text-slate-700 hover:border-sky-300 hover:text-primary hover:-translate-y-1 transition-all shadow-sm cursor-default">Python & FastAPI</span>
+                    <span class="glass px-4 py-2 rounded-lg text-sm font-medium text-slate-700 hover:border-sky-300 hover:text-primary hover:-translate-y-1 transition-all shadow-sm cursor-default">Machine Learning</span>
+                    <span class="glass px-4 py-2 rounded-lg text-sm font-medium text-slate-700 hover:border-sky-300 hover:text-primary hover:-translate-y-1 transition-all shadow-sm cursor-default">Deep Learning</span>
+                    <span class="glass px-4 py-2 rounded-lg text-sm font-medium text-slate-700 hover:border-sky-300 hover:text-primary hover:-translate-y-1 transition-all shadow-sm cursor-default">Generative AI</span>
+                    <span class="glass px-4 py-2 rounded-lg text-sm font-medium text-slate-700 hover:border-sky-300 hover:text-primary hover:-translate-y-1 transition-all shadow-sm cursor-default">PostgreSQL</span>
+                </div>
+
+                <div class="pt-6">
+                    <a href="#projects" class="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-gradient-to-r from-sky-500 to-blue-600 rounded-lg hover:from-sky-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-sky-200 hover:shadow-sky-300 hover:-translate-y-1 group">
+                        View Projects
+                        <i class="fa-solid fa-arrow-down ml-2 group-hover:animate-bounce"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 md:px-12 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-center mb-16 reveal text-textMain">
+                About <span class="text-gradient">Me</span>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Education & Core Stack -->
+                <div class="glass p-8 rounded-2xl reveal reveal-scale hover:border-sky-200 transition-colors group flex flex-col h-full">
+                    <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform shadow-sm">
+                        <i class="fa-solid fa-graduation-cap text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-textMain">Education</h3>
+                    <p class="text-slate-700 font-medium">BSc. CSIT (In Progress)</p>
+                    <p class="text-slate-500 text-sm mb-8">Tribhuvan University</p>
+                    
+                    <h4 class="text-slate-400 mb-3 text-xs uppercase font-bold tracking-wider">Core Tech Stack</h4>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="bg-slate-100 border border-slate-200 text-slate-700 px-3 py-1 rounded text-sm font-medium">Python</span>
+                        <span class="bg-slate-100 border border-slate-200 text-slate-700 px-3 py-1 rounded text-sm font-medium">FastAPI</span>
+                        <span class="bg-slate-100 border border-slate-200 text-slate-700 px-3 py-1 rounded text-sm font-medium">SQL</span>
+                        <span class="bg-slate-100 border border-slate-200 text-slate-700 px-3 py-1 rounded text-sm font-medium">Postgres</span>
+                        <span class="bg-slate-100 border border-slate-200 text-slate-700 px-3 py-1 rounded text-sm font-medium">HTML/CSS/JS</span>
+                    </div>
+                </div>
+
+                <!-- AI / ML Skills (Spans 2 columns) -->
+                <div class="glass p-8 rounded-2xl reveal reveal-scale md:col-span-2 group hover:border-blue-200 transition-colors">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center text-textMain">
+                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-secondary mr-4">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        AI & Data Science
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <!-- ML -->
+                        <div>
+                            <h4 class="text-slate-500 mb-3 text-sm font-bold tracking-wider">Machine Learning</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-white border border-sky-100 text-primary px-4 py-2 rounded-lg text-sm font-medium shadow-sm">Supervised Learning</span>
+                                <span class="bg-white border border-sky-100 text-primary px-4 py-2 rounded-lg text-sm font-medium shadow-sm">Unsupervised Learning</span>
+                                <span class="bg-white border border-sky-100 text-primary px-4 py-2 rounded-lg text-sm font-medium shadow-sm">Frequency</span>
+                            </div>
+                        </div>
+
+                        <!-- DL -->
+                        <div>
+                            <h4 class="text-slate-500 mb-3 text-sm font-bold tracking-wider">Deep Learning</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-white border border-indigo-100 text-indigo-600 px-4 py-2 rounded-lg text-sm font-medium shadow-sm">ANN</span>
+                                <span class="bg-white border border-indigo-100 text-indigo-600 px-4 py-2 rounded-lg text-sm font-medium shadow-sm">CNN</span>
+                                <span class="bg-white border border-indigo-100 text-indigo-600 px-4 py-2 rounded-lg text-sm font-medium shadow-sm">RNN</span>
+                                <span class="bg-white border border-indigo-100 text-indigo-600 px-4 py-2 rounded-lg text-sm font-medium shadow-sm">LSTM</span>
+                            </div>
+                        </div>
+
+                        <!-- Gen AI -->
+                        <div>
+                            <h4 class="text-slate-500 mb-3 text-sm font-bold tracking-wider">Generative AI</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gradient-to-r from-sky-50 to-blue-50 border border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-bold shadow-sm">Transformer</span>
+                                <span class="bg-gradient-to-r from-sky-50 to-blue-50 border border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-bold shadow-sm">RAG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 md:px-12 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-center mb-4 reveal text-textMain">
+                Featured <span class="text-gradient">Projects</span>
+            </h2>
+
+
+            <!-- Projects Grid (Populated by JS) -->
+            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Loader placeholder -->
+                <div class="col-span-full flex justify-center py-12" id="projects-loader">
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 md:px-12 relative z-10 mb-12">
+        <div class="max-w-3xl mx-auto glass rounded-3xl p-8 md:p-12 reveal shadow-xl shadow-sky-100/50 border-white">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-2 text-textMain">
+                Let's <span class="text-gradient">Connect</span>
+            </h2>
+            <p class="text-center text-slate-500 mb-8">Feel free to reach out for internship opportunities or collaborations.</p>
+
+            <form id="contact-form" class="space-y-6 relative">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label for="name" class="text-sm font-bold text-slate-700">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full bg-white/80 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="email" class="text-sm font-bold text-slate-700">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full bg-white/80 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label for="message" class="text-sm font-bold text-slate-700">Message</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full bg-white/80 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm resize-none"></textarea>
+                </div>
+                <button type="submit" id="submit-btn" class="w-full py-4 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white rounded-lg font-bold shadow-lg shadow-sky-200 transition-all hover:shadow-sky-300 hover:-translate-y-0.5 flex justify-center items-center">
+                    <span>Send Message</span>
+                    <i class="fa-solid fa-paper-plane ml-2"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white py-8 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <p class="font-heading font-bold text-lg text-slate-800">ZENITH RAI</p>
+                <p class="text-slate-500 text-sm mt-1">Machine Learning Engineer</p>
+            </div>
+            
+            <p class="text-slate-400 text-sm text-center">
+                © 2026 Zenith Rai.
+            </p>
+            
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="mt-4 md:mt-0 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:text-primary hover:bg-sky-50 transition-all shadow-sm">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Toast Notifications -->
+    <div id="toast" class="fixed bottom-5 right-5 transform translate-y-20 opacity-0 transition-all duration-300 z-50 bg-white border border-slate-200 shadow-xl px-6 py-4 rounded-lg flex items-center space-x-3 pointer-events-none">
+        <i id="toast-icon" class="fa-solid fa-circle-check text-green-500 text-xl"></i>
+        <span id="toast-message" class="font-medium text-slate-700">Message sent successfully!</span>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
