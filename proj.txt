@@ -1,0 +1,5 @@
+[projects]
+Car Resell Price Prediction|https://youtu.be/bDS3VTCZlwY?si=psF5fIhAAHG13G-L|A machine learning regression model built to accurately predict the resale value of vehicles based on historical data, mileage, brand, and condition.https://github.com/ZENITH-RAI/final-year-project
+Heart Disease Prediction|https://heartdisease-three.vercel.app|An end-to-end classification system using clinical parameters to predict the likelihood of heart disease, aiding in early diagnosis.
+Eye Disease Detection|https://github.com/ZENITH-RAI/EYEDISEASEPREDICTION/tree/main|A deep learning application utilizing Convolutional Neural Networks (CNNs) to detect and classify eye diseases from retinal scan images.
+Local RAG Document Q&A|https://www.linkedin.com/posts/zenith-rai-a56185323_ai-machinelearning-llm-activity-7479480231989506049-_ZVp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFG3q6IBLfkI6m0YDohjk6JbluFBMaoVQJE|A generative AI application using Retrieval-Augmented Generation (RAG) and local LLMs via Ollama to allow users to "chat" with their private documents securely.
