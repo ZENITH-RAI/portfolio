@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const particles = [];
     const packetStream = [];
-    const numParticles = Math.min(Math.floor((width * height) / 14000), 75);
+    const numParticles = Math.min(Math.floor((width * height) / 8000), 120);
     const codeTokens = ['01', '10', 'AI_VEC', 'TENSOR', 'RAG', 'FAST_API', 'PYTORCH', '0x9F', 'POSTGRES', 'DOCKER'];
 
     class Particle {
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.vx = (Math.random() - 0.5) * 0.7;
         this.vy = (Math.random() - 0.5) * 0.7;
         this.radius = Math.random() * 2 + 1;
-        this.color = Math.random() > 0.3 ? 'rgba(0, 245, 255, ' : 'rgba(139, 92, 246, ';
+        this.color = Math.random() > 0.3 ? 'rgba(0, 243, 255, ' : 'rgba(188, 19, 254, ';
         this.alpha = Math.random() * 0.5 + 0.2;
       }
       update() {
