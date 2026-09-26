@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       osc.start();
       osc.stop(audioCtx.currentTime + duration);
     } catch (e) {
+      soundEnabled = false;
       console.warn("Audio error:", e);
     }
   }
