@@ -510,12 +510,19 @@ document.addEventListener('DOMContentLoaded', () => {
     courseContainer.innerHTML = '';
 
     if (filtered.length === 0) {
-      courseContainer.innerHTML = `
-        <div class="col-span-full text-center py-12 text-slate-500 font-mono">
-          <i class="fa-solid fa-microchip text-3xl mb-3 text-cyan-500/40"></i>
-          <p>NO COURSES MATCHING QUERY [${query.toUpperCase()}]</p>
-        </div>
-      `;
+      const noCoursesDiv = document.createElement('div');
+      noCoursesDiv.className = 'col-span-full text-center py-12 text-slate-500 font-mono';
+
+      const icon = document.createElement('i');
+      icon.className = 'fa-solid fa-microchip text-3xl mb-3 text-cyan-500/40';
+
+      const text = document.createElement('p');
+      text.textContent = `NO COURSES MATCHING QUERY [${query.toUpperCase()}]`;
+
+      noCoursesDiv.appendChild(icon);
+      noCoursesDiv.appendChild(text);
+
+      courseContainer.appendChild(noCoursesDiv);
       return;
     }
 
