@@ -4,6 +4,23 @@
  * scroll-driven timeline, TU coursework explorer, and audio synthesis.
  */
 
+// Pure function extracted for testing
+function filterCourses(courseworkData, currentActiveSem, query) {
+  return courseworkData.filter(course => {
+    const matchesSem = currentActiveSem === 'all' || course.sem === parseInt(currentActiveSem);
+    const matchesQuery = !query ||
+      course.title.toLowerCase().includes(query) ||
+      course.code.toLowerCase().includes(query) ||
+      course.category.toLowerCase().includes(query);
+    return matchesSem && matchesQuery;
+  });
+}
+
+// Export for testing in Node.js environment
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { filterCourses };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // =========================================================================
@@ -498,14 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!courseContainer) return;
     const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
 
-    const filtered = courseworkData.filter(course => {
-      const matchesSem = currentActiveSem === 'all' || course.sem === parseInt(currentActiveSem);
-      const matchesQuery = !query || 
-        course.title.toLowerCase().includes(query) || 
-        course.code.toLowerCase().includes(query) || 
-        course.category.toLowerCase().includes(query);
-      return matchesSem && matchesQuery;
-    });
+    const filtered = filterCourses(courseworkData, currentActiveSem, query);
 
     courseContainer.innerHTML = '';
 
