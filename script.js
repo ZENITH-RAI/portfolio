@@ -494,6 +494,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const semTabs = document.querySelectorAll('.sem-tab-btn');
   let currentActiveSem = 'all';
 
+  function createCourseCard(course) {
+    const card = document.createElement('div');
+    card.className = 'course-card';
+
+    let catBadgeColor = 'badge-tech';
+    if (course.category.includes('AI') || course.category.includes('ML')) catBadgeColor = 'badge-purple';
+    else if (course.category.includes('Security') || course.category.includes('Data')) catBadgeColor = 'badge-green';
+
+    card.innerHTML = `
+      <div>
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-mono font-bold text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/60">
+            ${course.code}
+          </span>
+          <span class="text-xs font-mono text-slate-400">
+            SEM ${course.sem} • ${course.credits} CR
+          </span>
+        </div>
+        <h4 class="font-bold text-slate-100 text-base mb-2 group-hover:text-cyan-300 transition-colors">
+          ${course.title}
+        </h4>
+        <p class="text-xs text-slate-400 leading-relaxed mb-4">
+          ${course.desc}
+        </p>
+      </div>
+      <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between">
+        <span class="badge-tech ${catBadgeColor}">
+          <i class="fa-solid fa-tag text-[10px]"></i> ${course.category}
+        </span>
+        <span class="text-[11px] text-slate-500 font-mono">TU IOST</span>
+      </div>
+    `;
+    return card;
+  }
+
   function renderCourses() {
     if (!courseContainer) return;
     const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
@@ -520,37 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     filtered.forEach((course) => {
-      const card = document.createElement('div');
-      card.className = 'course-card';
-
-      let catBadgeColor = 'badge-tech';
-      if (course.category.includes('AI') || course.category.includes('ML')) catBadgeColor = 'badge-purple';
-      else if (course.category.includes('Security') || course.category.includes('Data')) catBadgeColor = 'badge-green';
-
-      card.innerHTML = `
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-mono font-bold text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/60">
-              ${course.code}
-            </span>
-            <span class="text-xs font-mono text-slate-400">
-              SEM ${course.sem} • ${course.credits} CR
-            </span>
-          </div>
-          <h4 class="font-bold text-slate-100 text-base mb-2 group-hover:text-cyan-300 transition-colors">
-            ${course.title}
-          </h4>
-          <p class="text-xs text-slate-400 leading-relaxed mb-4">
-            ${course.desc}
-          </p>
-        </div>
-        <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between">
-          <span class="badge-tech ${catBadgeColor}">
-            <i class="fa-solid fa-tag text-[10px]"></i> ${course.category}
-          </span>
-          <span class="text-[11px] text-slate-500 font-mono">TU IOST</span>
-        </div>
-      `;
+      const card = createCourseCard(course);
       courseContainer.appendChild(card);
     });
   }
