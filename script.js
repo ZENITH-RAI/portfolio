@@ -519,6 +519,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    const fragment = document.createDocumentFragment();
+
     filtered.forEach((course) => {
       const card = document.createElement('div');
       card.className = 'course-card';
@@ -551,8 +553,10 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="text-[11px] text-slate-500 font-mono">TU IOST</span>
         </div>
       `;
-      courseContainer.appendChild(card);
+      fragment.appendChild(card);
     });
+
+    courseContainer.appendChild(fragment);
   }
 
   // Handle Tab Click
