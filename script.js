@@ -579,12 +579,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   const tiltCards = document.querySelectorAll('.tilt-card');
   tiltCards.forEach(card => {
+    let rect, centerX, centerY;
+
+    function cacheRect() {
+      rect = card.getBoundingClientRect();
+      centerX = rect.width / 2;
+      centerY = rect.height / 2;
+    }
+
+    card.addEventListener('mouseenter', cacheRect);
+
+    // Invalidate cache on resize
+    window.addEventListener('resize', () => {
+      rect = null;
+    });
+
     card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
+      if (!rect) cacheRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
       const rotateX = ((y - centerY) / centerY) * -7;
       const rotateY = ((x - centerX) / centerX) * 7;
 
