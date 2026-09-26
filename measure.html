@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Measure</title>
+</head>
+<body>
+  <div class="timeline-container" style="height: 10000px; padding-top: 1000px;">
+    <div class="timeline-spine-progress" style="height: 0;"></div>
+    <div class="timeline-node" style="height: 100px; margin-bottom: 50px;"></div>
+    <div class="timeline-node" style="height: 100px; margin-bottom: 50px;"></div>
+    <div class="timeline-node" style="height: 100px; margin-bottom: 50px;"></div>
+    <div class="timeline-node" style="height: 100px; margin-bottom: 50px;"></div>
+    <div class="timeline-node" style="height: 100px; margin-bottom: 50px;"></div>
+  </div>
+  <script>
+    // Mocks
+    function playCyberBeep() {}
+  </script>
+  <script src="script.js"></script>
+  <script>
+    const timelineContainer = document.querySelector('.timeline-container');
+    const spineProgress = document.querySelector('.timeline-spine-progress');
+    const timelineNodes = document.querySelectorAll('.timeline-node');
+
+    function updateTimelineProgressOriginal() {
+      if (!timelineContainer || !spineProgress) return;
+
+      const rect = timelineContainer.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      const startY = rect.top;
+      const totalH = rect.height;
+
+      // Calculate percentage through container
+      let scrollFraction = (windowH * 0.7 - startY) / totalH;
+      scrollFraction = Math.max(0, Math.min(1, scrollFraction));
+
+      spineProgress.style.height = `${scrollFraction * 100}%`;
+
+      // Activate individual nodes
+      timelineNodes.forEach((node) => {
+        const nodeRect = node.getBoundingClientRect();
+        if (nodeRect.top < windowH * 0.75) {
+          if (!node.classList.contains('active-node')) {
+            node.classList.add('active-node');
+            playCyberBeep(520, 840, 0.06);
+          }
+        }
+      });
+    }
+
+    let timelineContainerRect = null;
+
+    function updateTimelineProgressOptimized() {
+      if (!timelineContainer || !spineProgress) return;
+
+      if (!timelineContainerRect) {
+         timelineContainerRect = timelineContainer.getBoundingClientRect();
+         // Actually, if we cache the rect, we have to recalculate the top position based on scrollY
+      }
+
+      // To properly avoid layout thrashing, we might want to just avoid getBoundingClientRect
+      // inside the scroll event altogether by using IntersectionObserver.
+      // But let's first test the performance of the current one.
+    }
+
+    let start = performance.now();
+    for (let i = 0; i < 10000; i++) {
+        updateTimelineProgressOriginal();
+    }
+    let end = performance.now();
+    console.log(`Original: ${end - start} ms`);
+
+  </script>
+</body>
+</html>

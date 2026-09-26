@@ -397,34 +397,67 @@ document.addEventListener('DOMContentLoaded', () => {
   const spineProgress = document.querySelector('.timeline-spine-progress');
   const timelineNodes = document.querySelectorAll('.timeline-node');
 
-  function updateTimelineProgress() {
-    if (!timelineContainer || !spineProgress) return;
-
-    const rect = timelineContainer.getBoundingClientRect();
-    const windowH = window.innerHeight;
-    const startY = rect.top;
-    const totalH = rect.height;
-
-    // Calculate percentage through container
-    let scrollFraction = (windowH * 0.7 - startY) / totalH;
-    scrollFraction = Math.max(0, Math.min(1, scrollFraction));
-
-    spineProgress.style.height = `${scrollFraction * 100}%`;
-
-    // Activate individual nodes
-    timelineNodes.forEach((node) => {
-      const nodeRect = node.getBoundingClientRect();
-      if (nodeRect.top < windowH * 0.75) {
-        if (!node.classList.contains('active-node')) {
-          node.classList.add('active-node');
-          playCyberBeep(520, 840, 0.06);
+  if (timelineNodes.length > 0) {
+    const nodeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (!entry.target.classList.contains('active-node')) {
+            entry.target.classList.add('active-node');
+            playCyberBeep(520, 840, 0.06);
+          }
         }
-      }
+      });
+    }, {
+      rootMargin: "0px 0px -25% 0px"
     });
+
+    timelineNodes.forEach((node) => nodeObserver.observe(node));
   }
 
-  window.addEventListener('scroll', updateTimelineProgress, { passive: true });
-  updateTimelineProgress();
+  let cachedTimelineRect = null;
+  let isTickingTimeline = false;
+
+  function cacheTimelineRect() {
+    if (!timelineContainer) return;
+    const rect = timelineContainer.getBoundingClientRect();
+    const scrollY = window.scrollY || window.pageYOffset;
+    cachedTimelineRect = {
+      top: rect.top + scrollY,
+      height: rect.height
+    };
+  }
+
+  function updateTimelineSpine() {
+    if (!timelineContainer || !spineProgress) return;
+
+    if (!isTickingTimeline) {
+      window.requestAnimationFrame(() => {
+        if (!cachedTimelineRect) {
+          cacheTimelineRect();
+        }
+
+        const windowH = window.innerHeight;
+        const scrollY = window.scrollY || window.pageYOffset;
+        const startY = cachedTimelineRect.top - scrollY;
+        const totalH = cachedTimelineRect.height;
+
+        let scrollFraction = (windowH * 0.7 - startY) / totalH;
+        scrollFraction = Math.max(0, Math.min(1, scrollFraction));
+
+        spineProgress.style.height = `${scrollFraction * 100}%`;
+
+        isTickingTimeline = false;
+      });
+      isTickingTimeline = true;
+    }
+  }
+
+  window.addEventListener('resize', () => {
+    cachedTimelineRect = null;
+    updateTimelineSpine();
+  });
+  window.addEventListener('scroll', updateTimelineSpine, { passive: true });
+  updateTimelineSpine();
 
 
   // =========================================================================
