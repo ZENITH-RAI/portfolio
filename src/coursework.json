@@ -1,0 +1,330 @@
+[
+  {
+    "sem": 1,
+    "code": "CSC109",
+    "title": "Introduction to Information Technology",
+    "credits": 3,
+    "category": "Core IT",
+    "desc": "Fundamental computing concepts, hardware architecture, operating systems, and digital foundations."
+  },
+  {
+    "sem": 1,
+    "code": "CSC110",
+    "title": "C Programming",
+    "credits": 3,
+    "category": "Programming",
+    "desc": "Structured problem solving, memory pointers, dynamic allocation, structures, and file I/O in C."
+  },
+  {
+    "sem": 1,
+    "code": "CSC111",
+    "title": "Digital Logic",
+    "credits": 3,
+    "category": "Hardware",
+    "desc": "Boolean algebra, combinational circuits, flip-flops, registers, counters, and digital circuit design."
+  },
+  {
+    "sem": 1,
+    "code": "MTH112",
+    "title": "Mathematics I (Calculus)",
+    "credits": 3,
+    "category": "Mathematics",
+    "desc": "Functions, limits, differential calculus, integral calculus, and multivariable applications."
+  },
+  {
+    "sem": 1,
+    "code": "PHY113",
+    "title": "Physics",
+    "credits": 3,
+    "category": "Science",
+    "desc": "Electromagnetism, semiconductors, optics, quantum theory, and solid-state device principles."
+  },
+  {
+    "sem": 2,
+    "code": "CSC160",
+    "title": "Discrete Structure",
+    "credits": 3,
+    "category": "Mathematics",
+    "desc": "Set theory, graph theory, propositional logic, trees, relations, and combinatorics for computation."
+  },
+  {
+    "sem": 2,
+    "code": "CSC161",
+    "title": "Object-Oriented Programming (C++)",
+    "credits": 3,
+    "category": "Programming",
+    "desc": "Encapsulation, inheritance, polymorphism, templates, operator overloading, and STL in C++."
+  },
+  {
+    "sem": 2,
+    "code": "CSC162",
+    "title": "Microprocessor",
+    "credits": 3,
+    "category": "Hardware",
+    "desc": "8085/8086 microprocessors, assembly language, memory interfacing, and I/O peripheral controllers."
+  },
+  {
+    "sem": 2,
+    "code": "MTH163",
+    "title": "Mathematics II (Linear Algebra)",
+    "credits": 3,
+    "category": "Mathematics",
+    "desc": "Matrices, vectors, eigenvalues, linear transformations, and systems of linear equations."
+  },
+  {
+    "sem": 2,
+    "code": "STA164",
+    "title": "Statistics I",
+    "credits": 3,
+    "category": "Mathematics",
+    "desc": "Descriptive statistics, probability theory, random variables, and probability distributions."
+  },
+  {
+    "sem": 3,
+    "code": "CSC206",
+    "title": "Data Structures and Algorithms (DSA)",
+    "credits": 3,
+    "category": "Core CS",
+    "desc": "Stacks, queues, linked lists, trees, graphs, sorting algorithms, hashing, and complexity analysis."
+  },
+  {
+    "sem": 3,
+    "code": "CSC207",
+    "title": "Numerical Method",
+    "credits": 3,
+    "category": "Mathematics",
+    "desc": "Numerical root finding, polynomial interpolation, numerical differentiation, integration, and ODEs."
+  },
+  {
+    "sem": 3,
+    "code": "CSC208",
+    "title": "Computer Architecture",
+    "credits": 3,
+    "category": "Hardware",
+    "desc": "Instruction cycle, ALU, memory hierarchy, cache design, pipelining, and RISC/CISC architecture."
+  },
+  {
+    "sem": 3,
+    "code": "CSC209",
+    "title": "Computer Graphics",
+    "credits": 3,
+    "category": "Core CS",
+    "desc": "Rasterization, Bresenham algorithms, 2D/3D transformations, projections, and illumination models."
+  },
+  {
+    "sem": 3,
+    "code": "STA210",
+    "title": "Statistics II",
+    "credits": 3,
+    "category": "Mathematics",
+    "desc": "Sampling theory, hypothesis testing, ANOVA, linear regression analysis, and chi-square tests."
+  },
+  {
+    "sem": 4,
+    "code": "CSC257",
+    "title": "Theory of Computation",
+    "credits": 3,
+    "category": "Core CS",
+    "desc": "Deterministic & non-deterministic automata (DFA/NFA), regular grammars, PDA, Turing machines, and NP-completeness."
+  },
+  {
+    "sem": 4,
+    "code": "CSC258",
+    "title": "Computer Networks",
+    "credits": 3,
+    "category": "Systems",
+    "desc": "OSI/TCP-IP models, subnetting, routing protocols (OSPF, BGP), transport layer (TCP/UDP), and DNS."
+  },
+  {
+    "sem": 4,
+    "code": "CSC259",
+    "title": "Operating Systems",
+    "credits": 3,
+    "category": "Systems",
+    "desc": "Process scheduling, thread synchronization, deadlocks, virtual memory management, and paging."
+  },
+  {
+    "sem": 4,
+    "code": "CSC260",
+    "title": "Database Management System (DBMS)",
+    "credits": 3,
+    "category": "Data",
+    "desc": "Relational algebra, SQL, normalization (1NF-BCNF), ACID transactions, indexing, and recovery."
+  },
+  {
+    "sem": 4,
+    "code": "CSC261",
+    "title": "Artificial Intelligence (AI)",
+    "credits": 3,
+    "category": "AI/ML",
+    "desc": "Heuristic search (A*, Minimax), knowledge representation, expert systems, neural nets, and NLP basics."
+  },
+  {
+    "sem": 5,
+    "code": "CSC314",
+    "title": "Design and Analysis of Algorithms (DAA)",
+    "credits": 3,
+    "category": "Core CS",
+    "desc": "Divide-and-conquer, greedy heuristics, dynamic programming, network flow, and complexity classes."
+  },
+  {
+    "sem": 5,
+    "code": "CSC315",
+    "title": "System Analysis and Design",
+    "credits": 3,
+    "category": "Software",
+    "desc": "SDLC methodologies, agile development, UML modeling, sequence diagrams, and requirements analysis."
+  },
+  {
+    "sem": 5,
+    "code": "CSC316",
+    "title": "Cryptography",
+    "credits": 3,
+    "category": "Security",
+    "desc": "Symmetric ciphers (AES, DES), RSA public key cryptography, SHA hashing, and zero-knowledge protocols."
+  },
+  {
+    "sem": 5,
+    "code": "CSC317",
+    "title": "Simulation and Modeling",
+    "credits": 3,
+    "category": "Systems",
+    "desc": "Continuous & discrete systems, Monte Carlo methods, Poisson processes, and model verification."
+  },
+  {
+    "sem": 5,
+    "code": "CSC318",
+    "title": "Web Technology",
+    "credits": 3,
+    "category": "Web",
+    "desc": "Modern full-stack architecture, HTTP protocols, asynchronous client-server APIs, DOM, and web standards."
+  },
+  {
+    "sem": 5,
+    "code": "CSC319",
+    "title": "Elective I (Image Processing)",
+    "credits": 3,
+    "category": "AI/Vision",
+    "desc": "Digital image transforms, spatial filtering, edge detection, segmentation, and feature extraction."
+  },
+  {
+    "sem": 6,
+    "code": "CSC364",
+    "title": "Software Engineering",
+    "credits": 3,
+    "category": "Software",
+    "desc": "Architectural patterns, CI/CD pipelines, automated testing, quality assurance, and project estimation."
+  },
+  {
+    "sem": 6,
+    "code": "CSC365",
+    "title": "Compiler Design and Construction",
+    "credits": 3,
+    "category": "Core CS",
+    "desc": "Lexical analysis (Lex), parsing (Yacc/Bison), syntax-directed translation, symbol tables, and code optimization."
+  },
+  {
+    "sem": 6,
+    "code": "CSC366",
+    "title": "E-Governance",
+    "credits": 3,
+    "category": "Applied",
+    "desc": "Digital public infrastructure, e-governance maturity models, cybersecurity policy, and identity management."
+  },
+  {
+    "sem": 6,
+    "code": "CSC367",
+    "title": "NET Centric Computing",
+    "credits": 3,
+    "category": "Software",
+    "desc": "C#, .NET runtime environment, asynchronous programming, ASP.NET Web APIs, and Entity Framework."
+  },
+  {
+    "sem": 6,
+    "code": "CSC368",
+    "title": "Technical Writing",
+    "credits": 3,
+    "category": "Professional",
+    "desc": "Engineering reports, research methodology, scientific documentation, and professional communication."
+  },
+  {
+    "sem": 6,
+    "code": "CSC369",
+    "title": "Elective II (Applied Logic)",
+    "credits": 3,
+    "category": "Core CS",
+    "desc": "First-order logic, modal logics, automated theorem proving, and formal hardware/software verification."
+  },
+  {
+    "sem": 7,
+    "code": "CSC409",
+    "title": "Advanced Java Programming",
+    "credits": 3,
+    "category": "Programming",
+    "desc": "Java Enterprise APIs, concurrent multi-threading, Spring Framework, servlets, and distributed sockets."
+  },
+  {
+    "sem": 7,
+    "code": "CSC410",
+    "title": "Data Warehousing and Data Mining",
+    "credits": 3,
+    "category": "Data",
+    "desc": "ETL pipelines, star schemas, OLAP cubes, association rule mining (Apriori), and cluster analysis."
+  },
+  {
+    "sem": 7,
+    "code": "MGT411",
+    "title": "Principles of Management",
+    "credits": 3,
+    "category": "Management",
+    "desc": "Organizational behavior, strategic planning, team leadership, risk assessment, and tech business management."
+  },
+  {
+    "sem": 7,
+    "code": "CSC412",
+    "title": "Project Work",
+    "credits": 3,
+    "category": "Project",
+    "desc": "Comprehensive engineering capstone project: system architecture, sprint execution, and defense."
+  },
+  {
+    "sem": 7,
+    "code": "CSC413",
+    "title": "Elective III (Network Security)",
+    "credits": 3,
+    "category": "Security",
+    "desc": "Firewalls, IDS/IPS, TLS/SSL protocols, network forensics, threat modeling, and ethical hacking."
+  },
+  {
+    "sem": 8,
+    "code": "CSC461",
+    "title": "Advanced Database",
+    "credits": 3,
+    "category": "Data",
+    "desc": "Distributed databases, NoSQL engines, query optimization, transaction concurrency, and object-oriented DBs."
+  },
+  {
+    "sem": 8,
+    "code": "CSC462",
+    "title": "Internship",
+    "credits": 6,
+    "category": "Industry",
+    "desc": "Full-time professional industry internship solving production software engineering and AI problems."
+  },
+  {
+    "sem": 8,
+    "code": "CSC463",
+    "title": "Elective IV (Cloud Computing)",
+    "credits": 3,
+    "category": "Systems",
+    "desc": "Virtualization, cloud architectures (AWS/GCP), microservices, container orchestration, and serverless."
+  },
+  {
+    "sem": 8,
+    "code": "CSC464",
+    "title": "Elective V (Deep Learning)",
+    "credits": 3,
+    "category": "AI/ML",
+    "desc": "Backpropagation, CNN architectures, Recurrent Networks, Attention mechanisms, and Transformers."
+  }
+]
