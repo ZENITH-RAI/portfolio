@@ -22,7 +22,7 @@ export default function App(){
     <div className="chapter-line"><span>0{index+1} / 05</span><span>{chapter.label}</span></div>
     <h1>{chapter.title.split('\n').map((line,i)=><span className="headline-line" key={line}>{line}{i===1&&<i/>}</span>)}</h1>
     <p className="story-description">{chapter.description}</p>
-    <div className="story-actions"><button className="primary" onClick={()=>{if(active==='My world')navigate('Projects');else document.getElementById('chapter-details')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})}}>{active==='My world'?'Explore my work':active==='Contact'?'Find me below':'Explore this chapter'} <span>↗</span></button><a className="text-link" href="/Zenith-Rai-Resume.pdf" target="_blank" rel="noreferrer">View résumé <span>↗</span></a></div>
+    <div className="story-actions"><button className="primary" onClick={()=>{if(active==='My world')navigate('Projects');else document.getElementById('chapter-details')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})}}>{active==='My world'?'Explore my work':active==='Contact'?'Find me below':'Explore this chapter'} <span>↗</span></button><a className="text-link" href="/Zenith_Rai_Resume.pdf" target="_blank" rel="noreferrer">View résumé <span>↗</span></a></div>
     <div className="story-location"><span className="location-icon">◎</span><div>KATHMANDU, NEPAL<p>{chapter.note}</p></div></div>
    </div>
    <div className="stage-shell"><div className="stage-topline"><span><i/> LIVE 3D WORLD</span><button onClick={()=>setAmbient(a=>!a)} aria-pressed={ambient}>{ambient?'Golden hour':'Daylight'} <span>◐</span></button></div>
